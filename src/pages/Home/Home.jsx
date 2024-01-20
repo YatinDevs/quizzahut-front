@@ -4,12 +4,14 @@ import ContactUs from "./ContactUs/ContactUs";
 import FeaturedTests from "./FeaturedTests/FeaturedTests";
 import FeaturedDevs from "./FeaturedDevs/FeaturedDevs";
 import ContentWrapper from "../../components/ContentWrapper/ContentWrapper";
+import HeroBanner from "./HeroBanner/HeroBanner";
 
 function Home() {
   return (
     <div>
+      <HeroBanner />
+
       <ContentWrapper>
-        HOMEPAGE
         <FeaturedTests />
         <FeaturedDevs />
         <Accordian />
