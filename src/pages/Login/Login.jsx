@@ -1,71 +1,6 @@
 import React, { useState } from "react";
 import { ImCross } from "react-icons/im";
-import "./Login.css"; // Import your custom styles
 
-// Header component for better organization
-const LoginHeader = () => (
-  <div className="header-cntr flex-top-elem new-header">
-    <div className="header-text-cntr">Log In</div>
-    <div className="login-header-text">Welcome to ixigo</div>
-    <div className="login-sub-header-text">
-      Get started to enjoy a seamless travel planning experience
-    </div>
-  </div>
-);
-
-// Login method selection component
-const LoginMethodSelection = ({ selectedMethod, onChange }) => (
-  <div className="radio-container">
-    {["mobile", "email"].map((method) => (
-      <label
-        key={method}
-        className={`radio-list-item u-ib ${
-          selectedMethod === method ? "selected" : ""
-        }`}
-      >
-        <input
-          type="radio"
-          value={method}
-          checked={selectedMethod === method}
-          onChange={() => onChange(method)}
-        />
-        <span className="radio-button u-pos-rel u-v-align-top u-ib"></span>
-        <span className="label u-ib u-pos-rel u-v-align-top">
-          {method === "mobile" ? "Mobile no." : "Email"}
-        </span>
-      </label>
-    ))}
-  </div>
-);
-
-// Phone/Email Input component
-const LoginInput = ({ selectedMethod }) => (
-  <div className="c-input-cntr phone-email-input is-phone">
-    <div className="c-country-code-wrapper u-v-align-middle u-ib">
-      <div className="c-input-country-code">
-        +91<span className="dd-icon ixi-icon-chevron"></span>
-      </div>
-    </div>
-    <div className="c-phone-email-input-wrapper u-v-align-middle u-ib">
-      <input
-        className="c-input u-v-align-bottom"
-        type={selectedMethod === "mobile" ? "tel" : "email"}
-        placeholder={selectedMethod === "mobile" ? "Mobile no." : "Email"}
-      />
-    </div>
-  </div>
-);
-
-// Continue Button component
-const ContinueButton = ({ onClick }) => (
-  <div className="login-button">
-    <button className="c-btn" onClick={onClick}>
-      Continue
-    </button>
-  </div>
-);
-
-// Main Login component
 function Login({ handleLoginModal }) {
   const [selectedLoginMethod, setSelectedLoginMethod] = useState("mobile");
 
@@ -87,17 +22,76 @@ function Login({ handleLoginModal }) {
       </div>
       <div className="login-container flex">
         <div className="creative-section w-[300px]">
-          {/* Add creative content or images */}
+          <img
+            src="https://images.ixigo.com/rt-udaan/pc/img/login/banner.png?v=1"
+            alt="Login Banner"
+          />
         </div>
         <div className="content-section">
-          <LoginHeader />
-          <div className="form-wrapper ixigo-login">
-            <LoginMethodSelection
-              selectedMethod={selectedLoginMethod}
-              onChange={handleLoginMethodChange}
-            />
-            <LoginInput selectedMethod={selectedLoginMethod} />
-            <ContinueButton onClick={handleContinue} />
+          <div className="header-cntr flex-top-elem new-header">
+            <div className="header-text-cntr">Log In</div>
+
+            <div className="login-header-text">Welcome to ixigo</div>
+            <div className="login-sub-header-text">
+              Get started to enjoy a seamless travel planning experience
+            </div>
+            <div className="form-wrapper ixigo-login">
+              <div className="radio-container">
+                <label
+                  className={`radio-list-item u-ib ${
+                    selectedLoginMethod === "mobile" ? "selected" : ""
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    value="mobile"
+                    checked={selectedLoginMethod === "mobile"}
+                    onChange={() => handleLoginMethodChange("mobile")}
+                  />
+                  <span className="radio-button u-pos-rel u-v-align-top u-ib"></span>
+                  <span className="label u-ib u-pos-rel u-v-align-top">
+                    Mobile no.
+                  </span>
+                </label>
+                <label
+                  className={`radio-list-item u-ib ${
+                    selectedLoginMethod === "email" ? "selected" : ""
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    value="email"
+                    checked={selectedLoginMethod === "email"}
+                    onChange={() => handleLoginMethodChange("email")}
+                  />
+                  <span className="radio-button u-pos-rel u-v-align-top u-ib"></span>
+                  <span className="label u-ib u-pos-rel u-v-align-top">
+                    Email
+                  </span>
+                </label>
+              </div>
+              <div className="c-input-cntr phone-email-input is-phone">
+                <div className="c-country-code-wrapper u-v-align-middle u-ib">
+                  <div className="c-input-country-code">
+                    +91<span className="dd-icon ixi-icon-chevron"></span>
+                  </div>
+                </div>
+                <div className="c-phone-email-input-wrapper u-v-align-middle u-ib">
+                  <input
+                    className="c-input u-v-align-bottom"
+                    type={selectedLoginMethod === "mobile" ? "tel" : "email"}
+                    placeholder={
+                      selectedLoginMethod === "mobile" ? "Mobile no." : "Email"
+                    }
+                  />
+                </div>
+              </div>
+              <div className="login-button">
+                <button className="c-btn" onClick={handleContinue}>
+                  Continue
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
