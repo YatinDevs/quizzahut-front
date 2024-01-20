@@ -12,7 +12,7 @@
 }
 .carousel .arrow {
   font-size: 30px;
-  color: rgb(207, 207, 207);
+  color: rgb(0, 234, 255);
   position: absolute;
   top: 44%;
   transform: translateY(-50%);
@@ -52,7 +52,7 @@
   }
 }
 .carousel .loadingSkeleton .skeletonItem {
-  width: 125px;
+  width: 300px;
   flex-shrink: 0;
 }
 @media (min-width: 768px) {
@@ -68,7 +68,7 @@
 .carousel .loadingSkeleton .skeletonItem .posterBlock {
   border-radius: 12px;
   width: 100%;
-  aspect-ratio: 1 / 1.5;
+  aspect-ratio: 1/ 1;
   margin-bottom: 30px;
 }
 .carousel .loadingSkeleton .skeletonItem .textBlock .title {
