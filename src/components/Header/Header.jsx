@@ -4,7 +4,7 @@ import "./style.css";
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
 import Modal from "../UI/Modal";
 import Login from "../../pages/Login/Login";
-import Logo from "../../assets/Logos/iMac3.svg";
+import Logo from "../../assets/Logos/QuizzaHutLogo.svg";
 import { BiHomeSmile } from "react-icons/bi";
 import { PiTelegramLogoLight } from "react-icons/pi";
 import { FcAbout } from "react-icons/fc";
@@ -24,13 +24,13 @@ function Header() {
         <nav className="flex justify-between items-center h-full bg-[#fff] z-5">
           <div className="nav-logo flex justify-center items-center  ">
             <Link to="/" className="flex items-center">
-              <img className="" src={logo} width={83} height={40} />
+              <img className="" src={logo} width={110} height={50} />
             </Link>
             <div className="nav-center flex justify-center items-center ml-[35px] ">
               <NavLink
                 to="/"
                 className={({ isActive }) =>
-                  ` flex px-[10px] py-[15px] items-center gap-1 justify-center shrink-0  
+                  ` h-full flex px-[10px] py-[15px] items-center gap-1 justify-center shrink-0  
                 ${isActive ? "text-orange-700" : "text-gray-700"}
                  `
                 }
